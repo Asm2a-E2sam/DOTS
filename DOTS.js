@@ -1,19 +1,19 @@
 let navbar = document.querySelector('.nav');
-document.querySelector('#menu-btn').onclick =()=>{
-    navbar.classList.toggle('active');
-    searchform.classList.remove('active');
+document.querySelector('#menu-btn').onclick = () => {
+  navbar.classList.toggle('active');
+  searchform.classList.remove('active');
 
 }
 let searchform = document.querySelector('.search_form');
-document.querySelector('#search_box').onclick =()=>{
-    searchform.classList.toggle('active');
-    navbar.classList.remove('active');
+document.querySelector('#search_box').onclick = () => {
+  searchform.classList.toggle('active');
+  navbar.classList.remove('active');
 
 }
 
-window.scroll = ()=>{
-    navbar.classList.remove('active');
-    searchform.classList.remove('active');
+window.scroll = () => {
+  navbar.classList.remove('active');
+  searchform.classList.remove('active');
 
 }
 
@@ -22,9 +22,9 @@ window.scroll = ()=>{
 // products
 
 //1
-var xhr=new XMLHttpRequest();
+var xhr = new XMLHttpRequest();
 //2
-xhr.open("GET","product.json")
+xhr.open("GET", "product.json")
 // xhr.open("GET","https://api.sampleapis.com/coffee/hot")
 // xhr.open("GET","https://fakestoreapi.com/products")
 // xhr.open("GET","https://api.sampleapis.com/coffee/iced")
@@ -39,31 +39,31 @@ xhr.send()
 // JSON.parse()  {"name":"noha","salary":1000}  >>  {name:"noha",salary:1000}
 // JSON.stringify()  {name:"noha",salary:1000}   >>  {"name":"noha","salary":1000}
 var data;
-xhr.addEventListener("load",function(){
+xhr.addEventListener("load", function () {
 
-      data=  JSON.parse(xhr.response)
-    //  console.log(xhr.response);
-     console.log(data);//array
-let product_curd =[];
+  data = JSON.parse(xhr.response)
+  //  console.log(xhr.response);
+  console.log(data);//array
+  let product_curd = [];
 
-    for(let i =0 ;i <data.length ; i++){
+  for (let i = 0; i < data.length; i++) {
 
-        let title= data[i].title;
-        let ingredients= data[i].ingredients;
-        let price=data[i].price;
-        // let category =data[i].category;
-        let img=data[i].image;
-        // let rating = data[i].rating;
-        let description=data[i].description;
+    let title = data[i].title;
+    let ingredients = data[i].ingredients;
+    let price = data[i].price;
+    // let category =data[i].category;
+    let img = data[i].image;
+    // let rating = data[i].rating;
+    let description = data[i].description;
 
 
-        // console.log(img);
-        // <p class="card-text"> ${rating.rate}</p>
-        // <p class="card-text"> ${category}</p>
-        //  <p class="card-text"> $${price}</p>
+    // console.log(img);
+    // <p class="card-text"> ${rating.rate}</p>
+    // <p class="card-text"> ${category}</p>
+    //  <p class="card-text"> $${price}</p>
 
-        product_curd +=
-       ` 
+    product_curd +=
+      ` 
        <div id="product_curd" class="card" style="width: 18rem;">
        <div id="img">
        <img src=${img} id=${id} class="card-img-top" alt="..."></div>
@@ -82,10 +82,10 @@ let product_curd =[];
        </div>
      </div>`
 
-    }
-      let main =document.getElementById('main');
+  }
+  let main = document.getElementById('main');
 
-      main.innerHTML=product_curd;
+  main.innerHTML = product_curd;
 })
 
 
@@ -95,58 +95,62 @@ let product_curd =[];
 
 
 var cities = []
-    var searchInput = document.getElementsByClassName("search")[0]
-    var suggestions = document.getElementsByClassName("suggestions")[0]
+var searchInput = document.getElementsByClassName("search")[0]
+var suggestions = document.getElementsByClassName("suggestions")[0]
 
 console.log(searchInput);
 
-    searchInput.addEventListener("keydown", displayMatchedVals)
-    cities = data;
+searchInput.addEventListener("keydown", displayMatchedVals)
+cities = data;
 
-    function filterCities() {
-      var text = searchInput.value
-      var regex = new RegExp(text, "i")
+function filterCities() {
+  var text = searchInput.value
+  var regex = new RegExp(text, "i")
 
-      var filteredData = cities.filter((element) => {
+  var filteredData = cities.filter((element) => {
 
-        return element.title.match(regex)
-      })
+    return element.title.match(regex)
+  })
 
-      return filteredData;
+  return filteredData;
 
-    }
+}
 
-    function displayMatchedVals() {
-      suggestions.innerHTML = ""
-      var filteredData = filterCities()
+function displayMatchedVals() {
+  suggestions.innerHTML = ""
+  var filteredData = filterCities()
 
-      // for (var item of filteredData) {
-      //   suggestions.innerHTML += `
-      //   <li>${item.state} , ${item.city}</li>
-      //   `
-      // }
+  // for (var item of filteredData) {
+  //   suggestions.innerHTML += `
+  //   <li>${item.state} , ${item.city}</li>
+  //   `
+  // }
 
-     var newFilteredData= filteredData.map((obj)=>{
-        return `<li>${obj.title} </li>`
-      })
-     var liArr= newFilteredData.join('')
-     suggestions.innerHTML=liArr
-    }
-
-
-    //map()
-
-  //   var arr=[10,20,30,40]
-  //  var newArr= arr.map((num)=>{
-      
-  //   return `<li>${num}</li>`
-  //  })
-
-  //  console.log(newArr.join(''));
+  var newFilteredData = filteredData.map((obj) => {
+    return `<li>${obj.title} </li>`
+  })
+  var liArr = newFilteredData.join('')
+  suggestions.innerHTML = liArr
+}
 
 
+//map()
+
+//   var arr=[10,20,30,40]
+//  var newArr= arr.map((num)=>{
+
+//   return `<li>${num}</li>`
+//  })
+
+//  console.log(newArr.join(''));
 
 
+
+// Show Cart
+document.addEventListener('DOMContentLoaded', function () {
+  var cartModal = document.getElementById('cartModal');
+  cartModal.classList.add('show');
+});
 
 
 
@@ -159,7 +163,7 @@ console.log(searchInput);
 
 // about
 
-const images = ['imgs/1.jpg', 'imgs/2.jpg', 'imgs/3.jpg','imgs/4.jpg','imgs/5.jpg','imgs/6.jpg','imgs/7.jpg'];
+const images = ['imgs/1.jpg', 'imgs/2.jpg', 'imgs/3.jpg', 'imgs/4.jpg', 'imgs/5.jpg', 'imgs/6.jpg', 'imgs/7.jpg'];
 const sliderImage = document.getElementById('slider-image');
 let currentPosition = 0;
 
@@ -291,22 +295,22 @@ let currentPosition1 = 0;
 // for( i=0; i<reviewarray.length;i++)
 //{
 
-  function slide(direction) {
-    currentPosition1 += direction * 100;
-    if (currentPosition1 > 0) {
-      currentPosition1 = -200;
-    } else if (currentPosition1 < -200) {
-      currentPosition1 = 0;
-    }
-    reviewSlider.style.transform = `translateX(${currentPosition1}%)`;
+function slide(direction) {
+  currentPosition1 += direction * 100;
+  if (currentPosition1 > 0) {
+    currentPosition1 = -200;
+  } else if (currentPosition1 < -200) {
+    currentPosition1 = 0;
   }
+  reviewSlider.style.transform = `translateX(${currentPosition1}%)`;
+}
 
-  prevButton.addEventListener('click', () => slide(-1));
-  nextButton.addEventListener('click', () => slide(1));
-  
-  setInterval(() => slide(1), 3000);
+prevButton.addEventListener('click', () => slide(-1));
+nextButton.addEventListener('click', () => slide(1));
 
-  
+setInterval(() => slide(1), 3000);
+
+
 //}
 // let reviewcontainer = document.querySelector('.review-container');
 
@@ -315,13 +319,13 @@ let currentPosition1 = 0;
 
 function sendID(target) {
   console.log(target);
-  if (target.tagName=="IMG") {
-    console.log("img",target.id);
-    var url="sigleProduct.html?id="+target.id
-    open(url,"_blank")
-    
+  if (target.tagName == "IMG") {
+    console.log("img", target.id);
+    var url = "sigleProduct.html?id=" + target.id
+    open(url, "_blank")
+
   }
-  
+
 }
 
 
