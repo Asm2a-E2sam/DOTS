@@ -66,7 +66,7 @@ let product_curd =[];
        ` 
        <div id="product_curd" class="card" style="width: 18rem;">
        <div id="img">
-       <img src=${img} class="card-img-top" alt="..."></div>
+       <img src=${img} id=${id} class="card-img-top" alt="..."></div>
        <div class="card-body">
          <h2 class="card-title">${title}</h2>
          <p class="card-text"> ${ingredients}</p>
@@ -313,7 +313,16 @@ let currentPosition1 = 0;
 // reviewcontainer.innerHTML= reviewarray[i];
 
 
-
+function sendID(target) {
+  console.log(target);
+  if (target.tagName=="IMG") {
+    console.log("img",target.id);
+    var url="sigleProduct.html?id="+target.id
+    open(url,"_blank")
+    
+  }
+  
+}
 
 
 
