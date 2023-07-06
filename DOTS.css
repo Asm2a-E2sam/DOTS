@@ -700,3 +700,42 @@ section {
 .footer .credit span {
     color: #fff;
 }
+
+
+.mainproduct{
+    width: 100%;
+}
+.singleProductImg{
+    width: 30%;
+    margin: 10px;
+}
+.singleProductdisc{
+    float: right;
+    width: 60%;
+    margin: 2%;
+}
+.singleProductTitle{
+    display: inline-block;
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.singleProductdescription{
+    font-size: 30px;
+}
+.singleProductIngr{
+    font-size: 30px;
+}
+.singleProductrating{
+    display: inline-block;
+    font-size: 20px;
+
+}
+.singleProductprice{
+    display: inline-block;
+    margin-right: 5px;
+}
+.singleProductbuy{
+    float: right;
+}
+

@@ -328,5 +328,80 @@ function sendID(target) {
 
 }
 
+var arr=[1,2,3,4,5,6]
+var i=0
+var j=0
+var l
+var k=0
+var n
+var v=3
+var m
+count=3
+function croseler() {
+  if(j>5){
+    console.log("reset");
+    j=0
+    i=0
+    k=0
+    v=3
+  }
+    for(i;i<arr.length;i++){
+      document.getElementById(arr[i]).setAttribute("hidden","true")
+    }
+    i=0
+    console.log("i",i);
+    for(j;j<arr.length-v;j++){
+      document.getElementById(arr[j]).removeAttribute("hidden")
+    }
+    console.log("j",j);
+    v--
+    for(k;k<=j-3;k++){
+      document.getElementById(arr[k]).removeAttribute("hidden")
+      document.getElementById(arr[k+1]).removeAttribute("hidden")
+    }
+    console.log("k",k);
+    console.log("v",v);
+    count=j-1
+    console.log(count);
 
+
+  }
+  setInterval(croseler(),3000)
+
+  
+function croselerback() {
+  if(count>2){
+    console.log("j",j);
+      for(i;i<arr.length;i++){
+        document.getElementById(arr[i]).setAttribute("hidden","true")
+      }
+      i=0
+    document.getElementById(arr[count-1]).removeAttribute("hidden")
+    document.getElementById(arr[count-2]).removeAttribute("hidden")
+    document.getElementById(arr[count-3]).removeAttribute("hidden")
+    count--
+    console.log(count);
+    j=count+1
+    v++
+    k--
+    console.log("j after",j);
+  }
+    if(count==2){
+      count=6
+      j=0
+      i=0
+      k=0
+      v=3
+      for(i;i<arr.length;i++){
+        document.getElementById(arr[i]).setAttribute("hidden","true")
+      }
+      i=0
+    document.getElementById(arr[count-1]).removeAttribute("hidden")
+    document.getElementById(arr[count-2]).removeAttribute("hidden")
+    document.getElementById(arr[count-3]).removeAttribute("hidden")
+    count--
+  
+  
+    }
+  }
 
