@@ -286,29 +286,29 @@ setInterval(changeImage, 1000);
 // `
 
 
-// let reviewarray = [box1,box2]
-const reviewSlider = document.querySelector('.review .box-container ');
-const prevButton = document.querySelector('.prev-button');
-const nextButton = document.querySelector('.next-button');
-let currentPosition1 = 0;
-// let i;
-// for( i=0; i<reviewarray.length;i++)
-//{
+// // let reviewarray = [box1,box2]
+// const reviewSlider = document.querySelector('.review .box-container ');
+// const prevButton = document.querySelector('.prev-button');
+// const nextButton = document.querySelector('.next-button');
+// let currentPosition1 = 0;
+// // let i;
+// // for( i=0; i<reviewarray.length;i++)
+// //{
 
-function slide(direction) {
-  currentPosition1 += direction * 100;
-  if (currentPosition1 > 0) {
-    currentPosition1 = -200;
-  } else if (currentPosition1 < -200) {
-    currentPosition1 = 0;
-  }
-  reviewSlider.style.transform = `translateX(${currentPosition1}%)`;
-}
+// function slide(direction) {
+//   currentPosition1 += direction * 100;
+//   if (currentPosition1 > 0) {
+//     currentPosition1 = -200;
+//   } else if (currentPosition1 < -200) {
+//     currentPosition1 = 0;
+//   }
+//   reviewSlider.style.transform = `translateX(${currentPosition1}%)`;
+// }
 
-prevButton.addEventListener('click', () => slide(-1));
-nextButton.addEventListener('click', () => slide(1));
+// prevButton.addEventListener('click', () => slide(-1));
+// nextButton.addEventListener('click', () => slide(1));
 
-setInterval(() => slide(1), 3000);
+// setInterval(() => slide(1), 3000);
 
 
 //}
